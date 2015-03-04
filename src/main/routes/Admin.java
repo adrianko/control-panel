@@ -1,20 +1,22 @@
 package main.routes;
 
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
-import main.Response;
+import main.scaffolding.HttpResponse;
 
-import java.io.IOException;
-
-public class Admin implements HttpHandler {
-
-    public static int code = 200;
-    public static String response = "<h1>Admin Panel</h1>";
-    public static String contentType = "text/html";
-
+public class Admin extends HttpResponse {
+    
     @Override
-    public void handle(HttpExchange t) throws IOException {
-        Response.send(t, response, code, contentType);
+    public String getResponse() {
+        return "<h1>Admin Panel</h1>";
     }
 
+    @Override
+    public String getContentType() {
+        return "text/html";
+    }
+
+    @Override
+    public int getCode() {
+        return 200;
+    }
+    
 }
