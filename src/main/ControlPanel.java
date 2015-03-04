@@ -21,9 +21,9 @@ public class ControlPanel {
         }
     }
 
-    public static void send(HttpExchange t, String response) {
+    public static void send(HttpExchange t, String response, int responseCode) {
         try {
-            t.sendResponseHeaders(200, response.length());
+            t.sendResponseHeaders(responseCode, response.length());
             OutputStream os = t.getResponseBody();
             os.write(response.getBytes());
             os.close();
@@ -36,7 +36,7 @@ public class ControlPanel {
 
         public void handle(HttpExchange t) {
             String response = "<h1>Hello World</h1>";
-            send(t, response);
+            send(t, response, 200);
         }
 
     }
