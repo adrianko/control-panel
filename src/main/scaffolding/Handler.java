@@ -17,7 +17,7 @@ public class Handler implements HttpHandler {
     public void handle(HttpExchange t) {
         log("Request: " + t.getRequestURI().getPath());
         Response.send(t, (HttpResponse) routes.getRoutes().get(
-            !routes.getRoutes().containsKey(t.getRequestURI().getPath()) ? t.getRequestURI().getPath() : "/404"
+            routes.getRoutes().containsKey(t.getRequestURI().getPath()) ? t.getRequestURI().getPath() : "/404"
         ));
     }
     
