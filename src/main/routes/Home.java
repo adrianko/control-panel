@@ -2,6 +2,7 @@ package main.routes;
 
 import com.sun.net.httpserver.HttpExchange;
 import main.Helper;
+import main.Routes;
 import main.scaffolding.Response;
 import main.scaffolding.HttpResponse;
 
@@ -28,7 +29,7 @@ public class Home extends HttpResponse {
         Helper.log("Request: " + t.getRequestURI().getPath());
         
         if (!t.getRequestURI().getPath().equals("/")) {
-            Response.send(t, new Error404());
+            Response.send(t, (HttpResponse) Routes.urls.get("/404"));
         } else {
             Response.send(t, this);
         }
