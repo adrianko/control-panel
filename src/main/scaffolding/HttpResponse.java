@@ -8,7 +8,7 @@ import java.io.IOException;
 public abstract class HttpResponse implements HttpHandler {
     
     public void handle(HttpExchange t) throws IOException {
-        Response.send(t, getResponse(), getCode(), getContentType());
+        Response.send(t, this);
     }
     
     public abstract String getResponse();
