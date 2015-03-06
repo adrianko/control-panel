@@ -1,7 +1,7 @@
 package main.routes;
 
 import com.sun.net.httpserver.HttpExchange;
-import main.Response;
+import main.scaffolding.Response;
 import main.scaffolding.HttpResponse;
 
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package main;
+package main.scaffolding;
 
 import com.sun.net.httpserver.HttpExchange;
 
