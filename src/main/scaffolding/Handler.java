@@ -2,8 +2,8 @@ package main.scaffolding;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import main.Routes;
 
+import main.Routes;
 import static main.core.Helper.log;
 
 public class Handler implements HttpHandler {
