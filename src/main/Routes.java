@@ -5,7 +5,7 @@ import com.sun.net.httpserver.HttpHandler;
 import java.util.HashMap;
 import java.util.Map;
 
-import main.routes.*;
+import main.controllers.*;
 
 public class Routes {
     

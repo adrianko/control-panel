@@ -1,4 +1,4 @@
-package main.routes;
+package main.controllers;
 
 import main.scaffolding.HttpResponse;
 
