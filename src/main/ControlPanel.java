@@ -1,6 +1,7 @@
 package main;
 
 import com.sun.net.httpserver.HttpServer;
+import main.scaffolding.Handler;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -13,8 +14,7 @@ public class ControlPanel {
         try {
             log("Starting server on port 9999");
             HttpServer server = HttpServer.create(new InetSocketAddress(9999), 0);
-            log("Loading routes");
-            Routes.urls.forEach(server::createContext);
+            server.createContext("/", new Handler());
             server.setExecutor(null);
             server.start();
         } catch (IOException e) {
