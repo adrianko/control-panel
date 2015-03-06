@@ -1,7 +1,6 @@
 package main.routes;
 
 import com.sun.net.httpserver.HttpExchange;
-import main.Helper;
 import main.Routes;
 import main.scaffolding.Response;
 import main.scaffolding.HttpResponse;
