@@ -28,8 +28,7 @@ public class Home extends HttpResponse {
         Helper.log("Request: " + t.getRequestURI().getPath());
         
         if (!t.getRequestURI().getPath().equals("/")) {
-            HttpResponse err = new Error404();
-            Response.send(t, err);
+            Response.send(t, new Error404());
         } else {
             Response.send(t, this);
         }
