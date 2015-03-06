@@ -9,6 +9,7 @@ public class ControlPanel {
 
     public static void main(String[] args) {
         try {
+            
             HttpServer server = HttpServer.create(new InetSocketAddress(9999), 0);
             Routes.urls.forEach(server::createContext);
             server.setExecutor(null);
