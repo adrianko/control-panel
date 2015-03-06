@@ -14,6 +14,8 @@ public class ControlPanel {
         try {
             log("Starting server on port 9999");
             HttpServer server = HttpServer.create(new InetSocketAddress(9999), 0);
+            
+            // push all requests through handler
             server.createContext("/", new Handler());
             server.setExecutor(null);
             server.start();
