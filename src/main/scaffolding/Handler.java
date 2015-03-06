@@ -12,6 +12,7 @@ public class Handler implements HttpHandler {
     
     public void handle(HttpExchange t) throws IOException {
         log("Request: " + t.getRequestURI().getPath());
+        
         if (Routes.urls.containsKey(t.getRequestURI().getPath())) {
             Response.send(t, (HttpResponse) Routes.urls.get(t.getRequestURI().getPath()));
         } else {
