@@ -8,6 +8,8 @@ import main.scaffolding.HttpResponse;
 
 import java.io.IOException;
 
+import static main.Helper.log;
+
 public class Home extends HttpResponse {
     
     @Override
@@ -26,7 +28,7 @@ public class Home extends HttpResponse {
     }
 
     public void handle(HttpExchange t) throws IOException {
-        Helper.log("Request: " + t.getRequestURI().getPath());
+        log("Request: " + t.getRequestURI().getPath());
         
         if (!t.getRequestURI().getPath().equals("/")) {
             Response.send(t, (HttpResponse) Routes.urls.get("/404"));

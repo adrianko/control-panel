@@ -2,18 +2,18 @@ package main.scaffolding;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import main.Helper;
+import static main.Helper.log;
 
 import java.io.IOException;
 
 public abstract class HttpResponse implements HttpHandler {
     
     public HttpResponse() {
-        Helper.log("Loading: " + getClass().getName());
+        log("Loading: " + getClass().getName());
     }
     
     public void handle(HttpExchange t) throws IOException {
-        Helper.log("Request: " + t.getRequestURI().getPath());
+        log("Request: " + t.getRequestURI().getPath());
         Response.send(t, this);
     }
     
