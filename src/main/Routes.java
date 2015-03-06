@@ -9,7 +9,7 @@ import main.routes.*;
 
 public class Routes {
     
-    public static Map<String, HttpHandler> urls;
+    private static Map<String, HttpHandler> urls;
     static {
         Map<String, HttpHandler> routes = new HashMap<>();
         routes.put("/", new Home());
@@ -17,6 +17,10 @@ public class Routes {
         routes.put("/404", new Error404());
         
         urls = routes;
+    }
+    
+    public static Map<String, HttpHandler> getRoutes() {
+        return urls;
     }
     
 }

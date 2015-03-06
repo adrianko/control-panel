@@ -5,7 +5,7 @@ import com.sun.net.httpserver.HttpExchange;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import static main.Helper.log;
+import static main.core.Helper.log;
 
 public class Response {
     

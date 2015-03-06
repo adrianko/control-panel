@@ -2,9 +2,10 @@ package main.scaffolding;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import static main.Helper.log;
 
 import java.io.IOException;
+
+import static main.core.Helper.log;
 
 public abstract class HttpResponse implements HttpHandler {
     

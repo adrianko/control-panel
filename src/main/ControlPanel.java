@@ -1,12 +1,12 @@
 package main;
 
 import com.sun.net.httpserver.HttpServer;
-import main.scaffolding.Handler;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
-import static main.Helper.log;
+import main.scaffolding.Handler;
+import static main.core.Helper.log;
 
 public class ControlPanel {
 
