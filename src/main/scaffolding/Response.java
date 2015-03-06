@@ -14,6 +14,7 @@ public class Response {
             log("Response: " + hr.getClass().getName() + " " + hr.getCode() + " " + hr.getContentType());
             t.getResponseHeaders().add("Content-Type", hr.getContentType());
             t.sendResponseHeaders(hr.getCode(), hr.getResponse().length());
+            
             OutputStream os = t.getResponseBody();
             os.write(hr.getResponse().getBytes());
             os.close();
