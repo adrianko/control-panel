@@ -6,7 +6,7 @@ public class Error404 extends HttpResponse {
 
     @Override
     public String getResponse() {
-        return "Error404";
+        return "404 Not Found";
     }
 
     @Override
