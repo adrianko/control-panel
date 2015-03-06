@@ -26,4 +26,9 @@ public class Server {
             e.printStackTrace();
         }
     }
+    
+    public void stop() {
+        server.stop(0);
+    }
+    
 }
