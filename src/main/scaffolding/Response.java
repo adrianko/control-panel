@@ -7,6 +7,10 @@ import java.io.OutputStream;
 
 public class Response {
     
+    public static void send(HttpExchange t, HttpResponse hr) {
+        send(t, hr.getResponse(), hr.getCode(), hr.getContentType());
+    }
+    
     public static void send(HttpExchange t, String response, int responseCode, String contentType) {
         try {
             t.getResponseHeaders().add("Content-Type", contentType);

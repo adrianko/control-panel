@@ -26,9 +26,9 @@ public class Home extends HttpResponse {
     public void handle(HttpExchange t) throws IOException {
         if (!t.getRequestURI().getPath().equals("/")) {
             HttpResponse err = new Error404();
-            Response.send(t, err.getResponse(), err.getCode(), err.getContentType());
+            Response.send(t, err);
         } else {
-            Response.send(t, getResponse(), getCode(), getContentType());
+            Response.send(t, this);
         }
     }
     
