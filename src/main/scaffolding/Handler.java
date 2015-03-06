@@ -10,7 +10,7 @@ import static main.core.Helper.log;
 
 public class Handler implements HttpHandler {
     
-    public Routes routes;
+    private Routes routes;
     
     public Handler(Routes r) {
         routes = r;
