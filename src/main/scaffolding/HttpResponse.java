@@ -13,6 +13,7 @@ public abstract class HttpResponse implements HttpHandler {
     }
     
     public void handle(HttpExchange t) throws IOException {
+        Helper.log("Request: " + t.getRequestURI().getPath());
         Response.send(t, this);
     }
     

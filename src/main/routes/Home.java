@@ -1,6 +1,7 @@
 package main.routes;
 
 import com.sun.net.httpserver.HttpExchange;
+import main.Helper;
 import main.scaffolding.Response;
 import main.scaffolding.HttpResponse;
 
@@ -24,6 +25,8 @@ public class Home extends HttpResponse {
     }
 
     public void handle(HttpExchange t) throws IOException {
+        Helper.log("Request: " + t.getRequestURI().getPath());
+        
         if (!t.getRequestURI().getPath().equals("/")) {
             HttpResponse err = new Error404();
             Response.send(t, err);
