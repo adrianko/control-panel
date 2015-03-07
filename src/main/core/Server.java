@@ -5,7 +5,6 @@ import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
-import main.Routes;
 import main.scaffolding.Handler;
 import static main.core.Helper.log;
 
