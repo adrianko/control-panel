@@ -1,12 +1,12 @@
-package main.controllers;
+package main.app.controllers;
 
 import main.scaffolding.HttpResponse;
 
-public class Error404 extends HttpResponse {
-
+public class Admin extends HttpResponse {
+    
     @Override
     public String getResponse() {
-        return "404 Not Found";
+        return "<h1>Admin Panel</h1>";
     }
 
     @Override
@@ -16,7 +16,7 @@ public class Error404 extends HttpResponse {
 
     @Override
     public int getCode() {
-        return 404;
+        return 200;
     }
     
 }

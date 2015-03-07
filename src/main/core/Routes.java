@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
-import main.controllers.*;
+import main.app.controllers.*;
 
 public class Routes {
     
@@ -28,7 +28,7 @@ public class Routes {
                 String route = key.toString();
                 String controller = paths.get(route).toString();
 
-                urls.put(route, (HttpHandler) Class.forName("main.controllers." + controller).newInstance());
+                urls.put(route, (HttpHandler) Class.forName("main.app.controllers." + controller).newInstance());
             }
         } catch (ParseException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             e.printStackTrace();
