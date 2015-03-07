@@ -2,6 +2,7 @@ package main.scaffolding;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import main.core.Response;
 
 import static main.core.Helper.log;
 

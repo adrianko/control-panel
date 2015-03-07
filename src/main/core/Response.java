@@ -1,6 +1,7 @@
-package main.scaffolding;
+package main.core;
 
 import com.sun.net.httpserver.HttpExchange;
+import main.scaffolding.HttpResponse;
 
 import java.io.IOException;
 import java.io.OutputStream;
