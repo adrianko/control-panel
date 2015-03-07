@@ -1,5 +1,9 @@
 package main;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import com.sun.net.httpserver.HttpHandler;
 
 import java.io.IOException;
@@ -9,9 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import main.controllers.*;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 public class Routes {
     
