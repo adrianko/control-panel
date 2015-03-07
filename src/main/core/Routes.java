@@ -19,7 +19,7 @@ public class Routes {
     private Map<String, HttpHandler> urls = new HashMap<>();
     
     public Routes() {
-        urls.put("/404", new Error404());
+        defaultRoutes();
 
         try {
             JSONObject paths = (JSONObject) new JSONParser().parse(loadRoutes());
@@ -37,6 +37,10 @@ public class Routes {
     
     public Map<String, HttpHandler> getRoutes() {
         return urls;
+    }
+
+    private void defaultRoutes() {
+        urls.put("/404", new Error404());
     }
 
     private String loadRoutes() {
