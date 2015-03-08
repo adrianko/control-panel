@@ -20,7 +20,7 @@ public class Handler implements HttpHandler {
     
     public void handle(HttpExchange t) {
         String p = this.getClass().getResource(".").getPath() + "../../../../..";
-        log("Request: " + t.getRequestURI().toString());
+        log(t.getRequestMethod() + ": " + t.getRequestURI().toString());
         File f = new File(p + t.getRequestURI().toString());
 
         if (f.exists() && !f.isDirectory()) {
