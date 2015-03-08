@@ -4,6 +4,7 @@ import com.sun.net.httpserver.HttpExchange;
 import main.scaffolding.HttpResponse;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -17,10 +18,7 @@ public class Response {
             log("Response: " + hr.getClass().getName() + " " + hr.getCode() + " " + hr.getContentType());
             t.getResponseHeaders().add("Content-Type", hr.getContentType());
             t.sendResponseHeaders(hr.getCode(), hr.getResponse().length());
-            
-            OutputStream os = t.getResponseBody();
-            os.write(hr.getResponse().getBytes());
-            os.close();
+            send(t.getResponseBody(), hr.getResponse().getBytes());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -31,8 +29,15 @@ public class Response {
             log("Response: 200 " + t.getRequestURI().toString());
             byte[] file = Files.readAllBytes(Paths.get(asset));
             t.sendResponseHeaders(200, file.length);
-            OutputStream os = t.getResponseBody();
-            os.write(file);
+            send(t.getResponseBody(), file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void send(OutputStream os, byte[] response) {
+        try {
+            os.write(response);
             os.close();
         } catch (IOException e) {
             e.printStackTrace();
