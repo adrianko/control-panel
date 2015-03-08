@@ -20,6 +20,7 @@ public class Handler implements HttpHandler {
         HttpResponse controller = (HttpResponse) routes.getRoutes().get(routes.getRoutes().containsKey(t.getRequestURI()
                 .getPath()) ? t.getRequestURI().getPath() : "/404");
         controller.setRequest(t);
+        controller.parseRequest();
         Response.send(t, controller);
     }
     

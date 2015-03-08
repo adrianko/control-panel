@@ -5,6 +5,9 @@ import main.scaffolding.HttpResponse;
 public class Error404 extends HttpResponse {
 
     @Override
+    public void parseRequest() {}
+
+    @Override
     public String getResponse() {
         return "404 Not Found";
     }

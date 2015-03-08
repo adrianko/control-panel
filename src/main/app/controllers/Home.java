@@ -4,13 +4,20 @@ import main.scaffolding.HttpResponse;
 
 public class Home extends HttpResponse {
 
+    String response;
+
+    @Override
+    public void parseRequest() {
+        if (httpRequest.getRequestURI().getQuery() != null && httpRequest.getRequestURI().getQuery().contains("g")) {
+            response = "<h1>Hi there</h1>";
+        } else {
+            response = "<h1>Hello World</h1>";
+        }
+    }
+
     @Override
     public String getResponse() {
-        if (httpRequest.getRequestURI().getQuery().contains("g")) {
-            return "<h1>Hi there</h1>";
-        }
-        
-        return "<h1>Hello World</h1>";
+        return response;
     }
 
     @Override

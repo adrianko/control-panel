@@ -8,6 +8,7 @@ import static main.core.Helper.log;
 
 public abstract class HttpResponse implements HttpHandler {
 
+    public String response;
     public HttpExchange httpRequest;
     
     public HttpResponse() {
@@ -22,7 +23,10 @@ public abstract class HttpResponse implements HttpHandler {
         httpRequest = t;
     }
 
-    public abstract String getResponse();
+    public abstract void parseRequest();
+    public String getResponse() {
+        return response;
+    };
     public abstract String getContentType();
     public abstract int getCode();
 
