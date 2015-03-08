@@ -6,6 +6,7 @@ import org.json.simple.parser.ParseException;
 
 import com.sun.net.httpserver.HttpHandler;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -45,7 +46,9 @@ public class Routes {
 
     private String loadRoutes() {
         try {
-            return new String(Files.readAllBytes(Paths.get("conf/routes.json")));
+            //return new String(Files.readAllBytes(Paths.get("conf/routes.json")));
+            return new String(Files.readAllBytes(Paths.get(new File(this.getClass().getResource(".").getPath() +
+                    "../../../../../conf/routes.json").getAbsolutePath())));
         } catch (IOException e) {
             e.printStackTrace();
         }
