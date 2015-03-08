@@ -8,11 +8,12 @@ public class Home extends HttpResponse {
 
     @Override
     public void parseRequest() {
-        response = "<h1>Hello World</h1>";
+        response = "<link type=\"text/css\" rel=\"stylesheet\" href=\"/assets/css/styles.css\">";
+        response += "<h1>Hello World</h1>";
 
         if (httpRequest.getRequestURI().getQuery() != null) {
             if (httpRequest.getRequestURI().getQuery().contains("g")) {
-                response = "<h1>Hi there</h1>";
+                response += "<h1>Hi there</h1>";
             }
         }
     }

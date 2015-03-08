@@ -5,6 +5,9 @@ import com.sun.net.httpserver.HttpHandler;
 
 import main.core.Response;
 import main.core.Routes;
+
+import java.io.File;
+
 import static main.core.Helper.log;
 
 public class Handler implements HttpHandler {
@@ -16,12 +19,19 @@ public class Handler implements HttpHandler {
     }
     
     public void handle(HttpExchange t) {
+        String p = this.getClass().getResource(".").getPath() + "../../../../..";
         log("Request: " + t.getRequestURI().toString());
-        HttpResponse controller = (HttpResponse) routes.getRoutes().get(routes.getRoutes().containsKey(t.getRequestURI()
-                .getPath()) ? t.getRequestURI().getPath() : "/404");
-        controller.setRequest(t);
-        controller.parseRequest();
-        Response.send(t, controller);
+        File f = new File(p + t.getRequestURI().toString());
+
+        if (f.exists() && !f.isDirectory()) {
+            Response.sendAsset(t, f.getAbsolutePath());
+        } else {
+            HttpResponse controller = (HttpResponse) routes.getRoutes().get(routes.getRoutes().containsKey(t.getRequestURI()
+                    .getPath()) ? t.getRequestURI().getPath() : "/404");
+            controller.setRequest(t);
+            controller.parseRequest();
+            Response.send(t, controller);
+        }
     }
     
 }
