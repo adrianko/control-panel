@@ -18,7 +18,6 @@ public class Home extends HttpResponse {
     }
 
     @Override
-
     public String getResponse() {
         return response;
     }
