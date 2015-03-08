@@ -8,10 +8,12 @@ public class Home extends HttpResponse {
 
     @Override
     public void parseRequest() {
-        if (httpRequest.getRequestURI().getQuery() != null && httpRequest.getRequestURI().getQuery().contains("g")) {
-            response = "<h1>Hi there</h1>";
-        } else {
-            response = "<h1>Hello World</h1>";
+        response = "<h1>Hello World</h1>";
+        
+        if (httpRequest.getRequestURI().getQuery() != null) {
+            if (httpRequest.getRequestURI().getQuery().contains("g")) {
+                response = "<h1>Hi there</h1>";
+            }
         }
     }
 
