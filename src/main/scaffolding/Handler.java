@@ -19,9 +19,8 @@ public class Handler implements HttpHandler {
     }
     
     public void handle(HttpExchange t) {
-        String p = this.getClass().getResource(".").getPath() + "../../../../..";
         log(t.getRequestMethod() + ": " + t.getRequestURI().toString());
-        File f = new File(p + t.getRequestURI().toString());
+        File f = new File(this.getClass().getResource(".").getPath() + "../../../../.." + t.getRequestURI().toString());
 
         if (f.exists() && !f.isDirectory()) {
             Response.sendAsset(t, f.getAbsolutePath());
