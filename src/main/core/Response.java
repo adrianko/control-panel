@@ -28,7 +28,7 @@ public class Response {
 
     public static void sendAsset(HttpExchange t, String asset) {
         try {
-            log("Response: 200 " + asset);
+            log("Response: 200 " + t.getRequestURI().toString());
             byte[] file = Files.readAllBytes(Paths.get(asset));
             t.sendResponseHeaders(200, file.length);
             OutputStream os = t.getResponseBody();
