@@ -15,7 +15,7 @@ public class Response {
     
     public static void send(HttpExchange t, HttpResponse hr) {
         try {
-            log("Response: " + hr.getClass().getName() + " " + hr.getCode() + " " + hr.getContentType());
+            log("Response: " + hr.getCode() + " " + hr.getContentType() + " " + hr.getClass().getName());
             t.getResponseHeaders().add("Content-Type", hr.getContentType());
             t.sendResponseHeaders(hr.getCode(), hr.getResponse().length());
             send(t.getResponseBody(), hr.getResponse().getBytes());
