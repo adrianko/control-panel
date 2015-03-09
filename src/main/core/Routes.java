@@ -29,16 +29,11 @@ public class Routes {
                 String route = key.toString();
                 String controller = paths.get(route).toString();
                 
-                HttpHandler controllerObj;
-                
-                if (controllers.containsKey(controller)) {
-                    controllerObj = controllers.get(controller);
-                } else {
-                    controllerObj = (HttpHandler) Class.forName("main.app.controllers." + controller).newInstance();
-                    controllers.put(controller, controllerObj);
+                if (!controllers.containsKey(controller)) {
+                    controllers.put(controller, (HttpHandler) Class.forName("main.app.controllers." + controller).newInstance());
                 }
 
-                urls.put(route, controllerObj);
+                urls.put(route, controllers.get(controller));
             }
         } catch (ParseException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             e.printStackTrace();
