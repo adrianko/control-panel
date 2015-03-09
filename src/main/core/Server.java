@@ -3,6 +3,7 @@ package main.core;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 
 import main.scaffolding.Handler;
@@ -15,7 +16,7 @@ public class Server {
     public Server(int port) {
         try {
             log("Starting server on port " + port);
-            server = HttpServer.create(new InetSocketAddress(port), 0);
+            server = HttpServer.create(new InetSocketAddress(InetAddress.getByName("0.0.0.0"), port), 0);
 
             // push all requests through handler
             server.createContext("/", new Handler(new Routes()));
