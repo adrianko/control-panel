@@ -49,7 +49,8 @@ public class Routes {
     }
 
     private void defaultRoutes() {
-        urls.put("/404", new Error404());
+        controllers.put("Error404", new Error404());
+        urls.put("/404", controllers.get("Error404"));
     }
 
     private String loadRoutes() {
