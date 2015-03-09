@@ -3,6 +3,7 @@ package main.scaffolding;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
+import main.core.Base;
 import main.core.Response;
 import main.core.Routes;
 
@@ -20,7 +21,7 @@ public class Handler implements HttpHandler {
     
     public void handle(HttpExchange t) {
         log(t.getRequestMethod() + ": " + t.getRequestURI().toString());
-        File f = new File(this.getClass().getResource(".").getPath() + "../../../../.." + t.getRequestURI().toString());
+        File f = new File(Base.path + t.getRequestURI().toString());
 
         if (f.exists() && !f.isDirectory()) {
             Response.sendAsset(t, f.getAbsolutePath());
