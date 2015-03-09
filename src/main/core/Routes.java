@@ -47,8 +47,7 @@ public class Routes {
     private String loadRoutes() {
         try {
             //return new String(Files.readAllBytes(Paths.get("conf/routes.json")));
-            return new String(Files.readAllBytes(Paths.get(new File(this.getClass().getResource(".").getPath() +
-                    "../../../../../conf/routes.json").getAbsolutePath())));
+            return new String(Files.readAllBytes(Paths.get(new File(Base.path + "conf/routes.json").getAbsolutePath())));
         } catch (IOException e) {
             e.printStackTrace();
         }
