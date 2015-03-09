@@ -10,14 +10,14 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import main.app.controllers.*;
 
 public class Routes {
     
     private Map<String, HttpHandler> urls = new HashMap<>();
+    private Map<String, HttpHandler> controllers = new HashMap<>();
     
     public Routes() {
         defaultRoutes();
@@ -28,8 +28,17 @@ public class Routes {
             for (Object key : paths.keySet()) {
                 String route = key.toString();
                 String controller = paths.get(route).toString();
+                
+                HttpHandler controllerObj;
+                
+                if (controllers.containsKey(controller)) {
+                    controllerObj = controllers.get(controller);
+                } else {
+                    controllerObj = (HttpHandler) Class.forName("main.app.controllers." + controller).newInstance();
+                    controllers.put(controller, controllerObj);
+                }
 
-                urls.put(route, (HttpHandler) Class.forName("main.app.controllers." + controller).newInstance());
+                urls.put(route, controllerObj);
             }
         } catch (ParseException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -38,6 +47,10 @@ public class Routes {
     
     public Map<String, HttpHandler> getRoutes() {
         return urls;
+    }
+    
+    public Set<HttpHandler> loadedControllers() {
+        return new HashSet<>(controllers.values());
     }
 
     private void defaultRoutes() {
