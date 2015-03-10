@@ -43,10 +43,6 @@ public class Routes {
     public Map<String, HttpHandler> getRoutes() {
         return urls;
     }
-    
-    public Set<HttpHandler> loadedControllers() {
-        return new HashSet<>(controllers.values());
-    }
 
     private void defaultRoutes() {
         controllers.put("Error404", new Error404());
