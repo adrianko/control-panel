@@ -1,20 +1,20 @@
-package main.app.controllers;
+package main.scaffolding.fallback;
 
 import main.scaffolding.HttpResponse;
 
-public class Error404 extends HttpResponse {
+public class Error extends HttpResponse {
 
     @Override
     public void parseRequest() {}
 
     @Override
     public String getResponse() {
-        return "404 Not Found";
+        return "404 Not Found :(";
     }
 
     @Override
     public String getContentType() {
-        return "text/html";
+        return "text/plain";
     }
 
     @Override

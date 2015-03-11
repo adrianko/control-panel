@@ -12,7 +12,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-import main.app.controllers.*;
+import main.app.controllers.*; // String instance
+import main.scaffolding.fallback.Error;
 
 public class Routes {
     
@@ -45,8 +46,8 @@ public class Routes {
     }
 
     private void defaultRoutes() {
-        controllers.put("Error404", new Error404());
-        urls.put("/404", controllers.get("Error404"));
+        controllers.put("Error", new Error());
+        urls.put("/404", controllers.get("Error"));
     }
 
     private String loadRoutes() {
