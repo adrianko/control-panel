@@ -31,7 +31,8 @@ public class Routes {
                 String controller = paths.get(route).toString();
                 
                 if (!controllers.containsKey(controller)) {
-                    controllers.put(controller, (HttpHandler) Class.forName("main.app.controllers." + controller).newInstance());
+                    controllers.put(controller, (HttpHandler) Class.forName("main.app.controllers." + controller)
+                        .newInstance());
                 }
 
                 urls.put(route, controllers.get(controller));
@@ -52,7 +53,8 @@ public class Routes {
 
     private String loadRoutes() {
         try {
-            return new String(Files.readAllBytes(Paths.get(new File(Base.path + "/conf/routes.json").getAbsolutePath())));
+            return new String(Files.readAllBytes(Paths.get(new File(Base.path + "/conf/routes.json")
+                .getAbsolutePath())));
         } catch (IOException e) {
             e.printStackTrace();
         }

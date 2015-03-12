@@ -26,8 +26,8 @@ public class Handler implements HttpHandler {
         if (f.exists() && !f.isDirectory()) {
             Response.sendAsset(t, f.getAbsolutePath());
         } else {
-            HttpResponse controller = (HttpResponse) routes.getRoutes().get(routes.getRoutes().containsKey(t.getRequestURI()
-                    .getPath()) ? t.getRequestURI().getPath() : "/404");
+            HttpResponse controller = (HttpResponse) routes.getRoutes().get(routes.getRoutes().containsKey(
+                    t.getRequestURI().getPath()) ? t.getRequestURI().getPath() : "/404");
             controller.setRequest(t);
             controller.parseRequest();
             Response.send(t, controller);
