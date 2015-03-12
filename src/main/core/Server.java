@@ -7,12 +7,13 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 
 import main.scaffolding.Handler;
+
 import static main.core.Helper.log;
 
 public class Server {
-    
+
     private HttpServer server;
-    
+
     public Server(int port) {
         try {
             log("Starting server on port " + port);
@@ -30,5 +31,5 @@ public class Server {
     public void stop() {
         server.stop(0);
     }
-    
+
 }
