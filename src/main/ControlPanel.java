@@ -3,7 +3,6 @@ package main;
 import main.core.Server;
 
 /**
- * TODO Add default controllers for error pages
  * TODO Add model classes
  * TODO Add mustache for views
  */
