@@ -12,7 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-import main.app.controllers.*; // String instance
+import main.app.controllers.*; // instances created using reflection
 import main.scaffolding.fallback.Error;
 
 public class Routes {
