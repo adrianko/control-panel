@@ -2,14 +2,20 @@ package main.app.controllers;
 
 import main.scaffolding.HttpResponse;
 
+import main.app.models.*;
+
 public class Admin extends HttpResponse {
+    
+    String response;
 
     @Override
-    public void parseRequest() {}
+    public void parseRequest() {
+        response = TimeModel.since(1234567890);
+    }
 
     @Override
     public String getResponse() {
-        return "<h1>Admin Panel</h1>";
+        return response;
     }
 
     @Override
