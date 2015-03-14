@@ -9,7 +9,7 @@ public class Scraper extends HttpResponse {
     @Override
     public void parseRequest() {
         try {
-            Runtime.getRuntime().exec("C:/sleep.bat");
+            Runtime.getRuntime().exec("C:/scraper.bat");
         } catch (IOException e) {
             e.printStackTrace();
         }
