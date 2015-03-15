@@ -9,7 +9,7 @@ public class Sleep extends HttpResponse {
     @Override
     public void parseRequest() {
         try {
-            Runtime.getRuntime().exec("C:/sleep.bat");
+            Runtime.getRuntime().exec("C:/runtime/sleep.bat");
         } catch (IOException e) {
             e.printStackTrace();
         }
