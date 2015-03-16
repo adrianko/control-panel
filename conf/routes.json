@@ -2,5 +2,6 @@
   "/": "Home",
   "/admin": "Admin",
   "/sleep": "Sleep",
-  "/scraper": "Scraper"
+  "/scraper": "Scraper",
+  "/ip": "CurrentIP"
 }
