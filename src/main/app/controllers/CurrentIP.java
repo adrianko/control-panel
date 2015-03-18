@@ -1,5 +1,6 @@
 package main.app.controllers;
 
+import main.app.models.IP;
 import main.scaffolding.HttpResponse;
 
 public class CurrentIP extends HttpResponse {
@@ -8,7 +9,7 @@ public class CurrentIP extends HttpResponse {
     
     @Override
     public void parseRequest() {
-        
+        response = IP.current();
     }
 
     @Override
