@@ -2,7 +2,7 @@ package main.app.controllers;
 
 import main.scaffolding.HttpResponse;
 
-import main.app.models.*;
+import main.app.models.TimeModel;
 
 public class Admin extends HttpResponse {
     
