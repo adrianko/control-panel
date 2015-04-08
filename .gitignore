@@ -60,3 +60,5 @@ $RECYCLE.BIN/
 
 .idea
 *.iml
+build
+.gradle
