@@ -1,1 +1,23 @@
 apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    compile group: 'com.github.spullara.mustache.java', name: 'compiler', version: '0.9.0'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+}
+
+task runServer(type: JavaExec) {
+    main = 'main.ControlPanel'
+    classpath = sourceSets.main.runtimeClasspath
+}
