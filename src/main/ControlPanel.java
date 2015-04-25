@@ -16,14 +16,18 @@ import java.awt.TrayIcon;
 public class ControlPanel {
     
     public static void main(String[] args) {
+        new ControlPanel();
+    }
+
+    public ControlPanel() {
         setTrayIcon(Base.path + "/assets/img/icon.png");
     }
 
-    private static void startServer() {
+    private void start() {
         new Server("0.0.0.0", 9999);
     }
 
-    private static void setTrayIcon(String imagePath) {
+    private void setTrayIcon(String imagePath) {
         if (SystemTray.isSupported()) {
             MenuItem defaultItem = new MenuItem();
             defaultItem.setLabel("Exit");
@@ -33,7 +37,7 @@ public class ControlPanel {
             popup.add(defaultItem);
 
             TrayIcon trayIcon = new TrayIcon(Toolkit.getDefaultToolkit().getImage(imagePath), "Control Panel", popup);
-            trayIcon.addActionListener(e -> startServer());
+            trayIcon.addActionListener(e -> start());
 
             try {
                 SystemTray tray = SystemTray.getSystemTray();
