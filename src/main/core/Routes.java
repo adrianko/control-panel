@@ -10,7 +10,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 import main.app.controllers.*; // instances created using reflection
 import main.scaffolding.fallback.Error;
