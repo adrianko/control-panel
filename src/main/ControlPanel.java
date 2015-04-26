@@ -23,10 +23,6 @@ public class ControlPanel {
         setTrayIcon(Base.path + "/assets/img/icon.png");
     }
 
-    private void start() {
-        new Server("0.0.0.0", 9999);
-    }
-
     private void setTrayIcon(String imagePath) {
         if (SystemTray.isSupported()) {
             MenuItem defaultItem = new MenuItem();
@@ -37,11 +33,11 @@ public class ControlPanel {
             popup.add(defaultItem);
 
             TrayIcon trayIcon = new TrayIcon(Toolkit.getDefaultToolkit().getImage(imagePath), "Control Panel", popup);
-            trayIcon.addActionListener(e -> start());
 
             try {
                 SystemTray tray = SystemTray.getSystemTray();
                 tray.add(trayIcon);
+                new Server("0.0.0.0", 9999);
             } catch (AWTException e) {
                 e.printStackTrace();
             }
