@@ -21,6 +21,7 @@ public class ControlPanel {
 
     public ControlPanel() {
         setTrayIcon(Base.path + "/assets/img/icon.png");
+        new Server("0.0.0.0", 9999);
     }
 
     private void setTrayIcon(String imagePath) {
@@ -37,7 +38,6 @@ public class ControlPanel {
             try {
                 SystemTray tray = SystemTray.getSystemTray();
                 tray.add(trayIcon);
-                new Server("0.0.0.0", 9999);
             } catch (AWTException e) {
                 e.printStackTrace();
             }
