@@ -1,5 +1,6 @@
 package main;
 
+import main.app.controllers.Sleep;
 import main.core.Base;
 import main.core.Server;
 
@@ -26,18 +27,20 @@ public class ControlPanel {
 
     private void setTrayIcon(String imagePath) {
         if (SystemTray.isSupported()) {
-            MenuItem defaultItem = new MenuItem();
-            defaultItem.setLabel("Exit");
-            defaultItem.addActionListener(e -> System.exit(0));
+            MenuItem sleep = new MenuItem();
+            sleep.setLabel("Sleep");
+            sleep.addActionListener(e -> Sleep.execute());
+            
+            MenuItem exit = new MenuItem();
+            exit.setLabel("Exit");
+            exit.addActionListener(e -> System.exit(0));
 
             PopupMenu popup = new PopupMenu();
-            popup.add(defaultItem);
-
-            TrayIcon trayIcon = new TrayIcon(Toolkit.getDefaultToolkit().getImage(imagePath), "Control Panel", popup);
-
+            popup.add(exit);
+            
             try {
                 SystemTray tray = SystemTray.getSystemTray();
-                tray.add(trayIcon);
+                tray.add(new TrayIcon(Toolkit.getDefaultToolkit().getImage(imagePath), "Control Panel", popup));
             } catch (AWTException e) {
                 e.printStackTrace();
             }

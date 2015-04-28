@@ -29,5 +29,9 @@ public class Sleep extends HttpResponse {
     public int getCode() {
         return 200;
     }
+    
+    public static void execute() {
+        new Sleep().parseRequest();
+    }
 
 }
