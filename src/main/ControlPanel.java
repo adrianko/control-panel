@@ -36,6 +36,7 @@ public class ControlPanel {
             exit.addActionListener(e -> System.exit(0));
 
             PopupMenu popup = new PopupMenu();
+            popup.add(sleep);
             popup.add(exit);
             
             try {
