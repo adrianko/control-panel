@@ -29,5 +29,8 @@ public class Scraper extends HttpResponse {
     public int getCode() {
         return 200;
     }
-    
+
+    public static void execute() {
+        new Scraper().parseRequest();
+    }
 }

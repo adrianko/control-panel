@@ -1,5 +1,6 @@
 package main;
 
+import main.app.controllers.Scraper;
 import main.app.controllers.Sleep;
 import main.core.Base;
 import main.core.Server;
@@ -27,6 +28,10 @@ public class ControlPanel {
 
     private void setTrayIcon(String imagePath) {
         if (SystemTray.isSupported()) {
+            MenuItem scraper = new MenuItem();
+            scraper.setLabel("Scraper");
+            scraper.addActionListener(e -> Scraper.execute());
+            
             MenuItem sleep = new MenuItem();
             sleep.setLabel("Sleep");
             sleep.addActionListener(e -> Sleep.execute());
