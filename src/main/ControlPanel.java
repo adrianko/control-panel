@@ -14,6 +14,7 @@ import java.awt.TrayIcon;
 
 /**
  * TODO Add mustache for views
+ * TODO Convert batch files to commands
  */
 public class ControlPanel {
     
