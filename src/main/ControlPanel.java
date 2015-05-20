@@ -46,8 +46,8 @@ public class ControlPanel {
             popup.add(exit);
             
             try {
-                SystemTray tray = SystemTray.getSystemTray();
-                tray.add(new TrayIcon(Toolkit.getDefaultToolkit().getImage(imagePath), "Control Panel", popup));
+                SystemTray.getSystemTray().add(new TrayIcon(Toolkit.getDefaultToolkit().getImage(imagePath),
+                        "Control Panel", popup));
             } catch (AWTException e) {
                 e.printStackTrace();
             }
