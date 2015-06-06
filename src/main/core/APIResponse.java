@@ -1,50 +1,27 @@
 package main.core;
 
-import com.sun.net.httpserver.HttpExchange;
+import main.scaffolding.HttpResponse;
 
-import java.util.HashMap;
-import java.util.Map;
+public class APIResponse extends HttpResponse {
 
-public class APIResponse {
+    @Override
+    public void parseRequest() {
 
-    private int success;
-    private String request;
-    private Object response;
-
-    private HttpExchange httpExchange;
-
-    public void create(String req, HttpExchange he) {
-        request = req;
-        httpExchange = he;
     }
 
-    public void success() {
-        success = 1;
+    @Override
+    public String getResponse() {
+        return null;
     }
 
-    public void fail() {
-        success = 0;
+    @Override
+    public String getContentType() {
+        return "application/json";
     }
 
-    public void addResponse(Object r) {
-        response = r;
-    }
-
-    public void send() {
-        Map<String, Object> response = new HashMap<>();
-        response.put("request", request);
-        response.put("success", success);
-        response.put("response", this.response);
-
-        Response.sendJSON(httpExchange, response);
-    }
-
-    public String getURL() {
-        return request;
-    }
-
-    public HttpExchange getRequest() {
-        return httpExchange;
+    @Override
+    public int getCode() {
+        return 200;
     }
 
 }
